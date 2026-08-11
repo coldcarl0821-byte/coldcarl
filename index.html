@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
 <title>Happy 2nd Anniversary ❤️</title>
 
@@ -29,11 +29,11 @@ body {
 }
 
 
-/* =================================
-   BACKGROUND PHOTO
-================================= */
+/* =========================
+   PHOTO BACKGROUND
+========================= */
 
-bg {
+.photo-background {
     position: fixed;
 
     top: 0;
@@ -42,26 +42,34 @@ bg {
     width: 100%;
     height: 100vh;
 
-    z-index: -1;
+    z-index: 0;
 
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+
+    background: #000;
+}
+
+.photo-background img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
 
     opacity: 1;
+
     transform: scale(1);
 
     transition:
-        opacity 1s ease-in-out,
-        transform 8s ease-in-out;
-}
-
-.bg.change {
-    opacity: 0;
-    transform: scale(1.08);
+        opacity 1s ease,
+        transform 8s ease;
 }
 
 
-/* dark overlay */
+/* DARK OVERLAY */
 
 .overlay {
     position: fixed;
@@ -72,21 +80,37 @@ bg {
     width: 100%;
     height: 100vh;
 
+    z-index: 1;
+
     background:
         linear-gradient(
-            rgba(0,0,0,0.25),
+            rgba(0,0,0,0.35),
             rgba(0,0,0,0.65)
         );
 
-    z-index: -1;
+    pointer-events: none;
 }
 
 
-/* =================================
-   OPENING
-================================= */
+/* =========================
+   CONTENT
+========================= */
+
+.hero,
+.message,
+.final {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
+
     height: 100vh;
 
     display: flex;
@@ -100,10 +124,12 @@ bg {
 }
 
 .hero-content {
-    animation: fadeIn 2s ease;
+
+    animation:
+        fadeIn 2s ease;
 }
 
-.hero-small {
+.small-title {
 
     font-size: 12px;
 
@@ -116,25 +142,29 @@ bg {
 
 .hero h1 {
 
-    font-size: 55px;
+    font-size: clamp(
+        50px,
+        13vw,
+        85px
+    );
 
     font-weight: normal;
 
-    line-height: 1.1;
+    line-height: 1.05;
 
     text-shadow:
-        0 5px 20px black;
+        0 4px 20px #000;
 }
 
 .hero h1 span {
 
     display: block;
 
-    font-size: 0.48em;
+    font-size: 0.45em;
 
     font-style: italic;
 
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
 .scroll {
@@ -147,93 +177,80 @@ bg {
 
     text-transform: uppercase;
 
-    animation: bounce 2s infinite;
+    animation:
+        bounce 2s infinite;
 }
 
 .arrow {
 
     display: block;
 
-    margin-top: 10px;
+    margin-top: 12px;
 
     font-size: 25px;
 }
 
 
-/* =================================
-   ONE LONG LETTER
-================================= */
+/* =========================
+   ONE LONG MESSAGE
+========================= */
 
-.letter {
+.message {
 
-    max-width: 650px;
+    width: 100%;
+
+    max-width: 700px;
 
     margin: auto;
 
-    padding: 100px 25px 150px;
-
+    padding:
+        100px
+        25px
+        150px;
 }
 
-
-/* letter title */
-
-.title {
+.message-title {
 
     text-align: center;
 
-    margin-bottom: 70px;
+    margin-bottom: 80px;
 }
 
-.title h2 {
+.message-title h2 {
 
     font-size: 38px;
 
     font-weight: normal;
 }
 
-.title p {
+.heart {
+
+    font-size: 28px;
 
     margin-top: 20px;
-
-    font-size: 25px;
 }
 
 
-/* paragraphs */
+/* EACH PART OF THE SAME LETTER */
 
-.letter p {
+.message p {
 
     font-size: 19px;
 
     line-height: 2;
 
-    margin-bottom: 60px;
-
-    text-align: left;
+    margin-bottom: 150px;
 
     text-shadow:
-        0 2px 8px black;
-
+        0 3px 12px #000;
 }
 
 
-/* =================================
-   PHOTO CHANGE MARKERS
-================================= */
+/* =========================
+   FINAL
+========================= */
 
-.photo-trigger {
-
-    height: 5px;
-
-    width: 100%;
-}
-
-
-/* =================================
-   END
-================================= */
-
-.end {
+.final {
 
     min-height: 100vh;
 
@@ -248,25 +265,31 @@ bg {
     padding: 30px;
 }
 
-.end-content {
+.final-content {
 
-    max-width: 600px;
+    max-width: 650px;
 }
 
-.end h2 {
+.final h2 {
 
     font-size: 48px;
 
     font-weight: normal;
 
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 4px 20px #000;
 }
 
-.end p {
+.final p {
 
     font-size: 19px;
 
     line-height: 2;
+
+    text-shadow:
+        0 3px 12px #000;
 }
 
 .signature {
@@ -279,9 +302,9 @@ bg {
 }
 
 
-/* =================================
+/* =========================
    ANIMATIONS
-================================= */
+========================= */
 
 @keyframes fadeIn {
 
@@ -305,7 +328,8 @@ bg {
 
 @keyframes bounce {
 
-    0%, 100% {
+    0%,
+    100% {
 
         transform:
             translateY(0);
@@ -319,40 +343,59 @@ bg {
 }
 
 
-/* =================================
+/* =========================
    MOBILE
-================================= */
+========================= */
 
 @media (max-width: 600px) {
+
+    .small-title {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
 
     .hero h1 {
 
         font-size: 50px;
     }
 
-    .letter {
+    .hero h1 span {
 
-        padding-left: 24px;
-        padding-right: 24px;
+        font-size: 25px;
     }
 
-    .letter p {
+    .message {
+
+        padding:
+            80px
+            24px
+            120px;
+    }
+
+    .message-title h2 {
+
+        font-size: 32px;
+    }
+
+    .message p {
 
         font-size: 17px;
 
         line-height: 1.9;
 
-        margin-bottom: 70px;
+        margin-bottom: 150px;
     }
 
-    .title h2 {
-
-        font-size: 32px;
-    }
-
-    .end h2 {
+    .final h2 {
 
         font-size: 40px;
+    }
+
+    .final p {
+
+        font-size: 17px;
     }
 
 }
@@ -365,28 +408,35 @@ bg {
 <body>
 
 
-<!-- =================================
-     BACKGROUND
-================================= -->
+<!-- =========================
+     BACKGROUND PHOTO
+========================= -->
 
-<div class="background"
-id="background">
+<div class="photo-background">
+
+    <img
+        id="backgroundPhoto"
+        src="photo1.jpg"
+        alt="Our memory">
+
 </div>
 
-<div class="overlay">
-</div>
+
+<!-- DARK OVERLAY -->
+
+<div class="overlay"></div>
 
 
 
-<!-- =================================
+<!-- =========================
      OPENING
-================================= -->
+========================= -->
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <div class="hero-small">
+        <div class="small-title">
 
             For the love of my life
 
@@ -420,221 +470,299 @@ id="background">
 
 
 
-<!-- =================================
-     ONE LONG MESSAGE
-================================= -->
+<!-- =========================
+     ONE CONTINUOUS LETTER
+========================= -->
 
-<main class="letter">
+<section class="message">
 
 
-    <div class="title">
+    <div class="message-title">
 
         <h2>
-            To My Love ❤️
+            To My Love
         </h2>
 
-        <p>
+        <div class="heart">
             ♡
-        </p>
+        </div>
 
     </div>
 
 
 
-    <!-- =================================
-         YOUR ONE LONG MESSAGE STARTS HERE
-    ================================= -->
+    <!-- PHOTO 1 -->
 
+    <p data-photo="photo1.jpg">
 
-    <p>
+        Happy 2nd anniversary my love.
 
-        Happy 2nd anniversary my love. I honestly can't
-        believe that we have already reached two years
-        together. When I look back at everything we have
-        experienced together I realize just how many
-        memories we have created. Two years may sound
-        like a long time but somehow it feels like it went
-        by so quickly. I still remember the beginning of
-        our relationship and all the moments that slowly
-        brought us closer together. Since then you have
-        become such an important part of my life and I
-        honestly cannot imagine these past two years
-        without you.
+        I honestly can't believe that we have already
+        reached two years together. When I think about
+        everything we have experienced together I
+        realize just how many memories we have created.
+
+        Two years may sound like a long time but
+        somehow it feels like everything went by
+        so quickly.
+
+        I still remember the beginning of our
+        relationship and all the little moments
+        that slowly brought us closer together.
+
+        Since then you have become such an important
+        part of my life and I am so thankful that
+        I get to call you my love.
 
     </p>
 
 
-    <!-- PHOTO CHANGES AFTER THIS -->
 
-    <div
-        class="photo-trigger"
-        data-photo="photo2.jpg">
-    </div>
+    <!-- PHOTO 2 -->
 
-
-
-    <p>
+    <p data-photo="photo2.jpg">
 
         I want you to know how thankful I am for you.
+
         Thank you for all the time you have given me.
-        Thank you for listening to my stories even when
-        they are random. Thank you for laughing with me
-        even when my jokes aren't funny. Thank you for
-        being there during the good days and even during
-        the days when things weren't so easy. There are
-        so many little things you have done that may seem
-        simple but mean so much to me. Those little moments
-        are some of the things I will always remember.
+        Thank you for listening to my stories.
+        Thank you for laughing with me.
+        Thank you for being there when I needed someone.
 
-    </p>
+        There are so many little things you have done
+        that may seem simple but mean so much to me.
 
+        Every conversation.
+        Every laugh.
+        Every date.
+        Every random picture.
+        Every simple moment.
 
-    <!-- PHOTO CHANGES -->
-
-    <div
-        class="photo-trigger"
-        data-photo="photo3.jpg">
-    </div>
-
-
-
-    <p>
-
-        Our relationship has not always been perfect and
-        I know that we have had our misunderstandings and
-        difficult moments. We have had times when we didn't
-        completely understand each other and moments when
-        emotions got in the way. But even through those
-        moments I am thankful that we continued choosing
-        each other. Those experiences taught me that love
-        isn't only about the happy moments. Love is also
-        about patience. It is about understanding. It is
-        about learning from each other and becoming better
-        together.
-
-    </p>
-
-
-    <!-- PHOTO CHANGES -->
-
-    <div
-        class="photo-trigger"
-        data-photo="photo4.jpg">
-    </div>
-
-
-
-    <p>
-
-        When I think about everything we have experienced
-        together I realize how many memories we already
-        have. Every conversation. Every laugh. Every date.
-        Every random picture. Every late night conversation.
-        Every silly moment. Every simple day where we were
-        just happy being together. All of those moments
-        became part of our story. They may not seem like
-        huge events to anyone else but they mean something
-        special to me because I experienced them with you.
-
-    </p>
-
-
-    <!-- PHOTO CHANGES -->
-
-    <div
-        class="photo-trigger"
-        data-photo="photo5.jpg">
-    </div>
-
-
-
-    <p>
-
-        There are so many things that I love about you.
-        Some of them are things I tell you all the time
-        while others are things that I probably don't say
-        enough. I love the way you make me smile. I love
-        the way you can make an ordinary day feel special.
-        I love the memories we have created and I love
-        knowing that there is someone in my life who I can
-        share both the exciting moments and the simple
-        moments with.
-
-    </p>
-
-
-    <!-- PHOTO CHANGES -->
-
-    <div
-        class="photo-trigger"
-        data-photo="photo1.jpg">
-    </div>
-
-
-
-    <p>
-
-        After two years I still choose you. I still want
-        to learn more about you. I still want to hear your
-        stories. I still want to make you laugh. I still
-        want to create memories with you. I still want to
-        experience new places with you and I still want
-        those ordinary days where we don't have to do
-        anything special as long as we are together.
-
-        I don't know exactly what the future will look like
-        and I don't know what challenges we will face.
-        But I know that I want you to be part of my future.
-        I want to continue growing with you and I want to
-        continue making memories with you.
+        They all became memories that I will always
+        treasure because I experienced them with you.
 
     </p>
 
 
 
-    <p>
+    <!-- PHOTO 3 -->
+
+    <p data-photo="photo3.jpg">
+
+        Of course our relationship has not always
+        been perfect.
+
+        We have had misunderstandings.
+        We have had difficult moments.
+        We have had days when we didn't completely
+        understand each other.
+
+        But even through those moments I am thankful
+        that we continued choosing each other.
+
+        Those moments taught me that love isn't
+        only about the happy days.
+
+        Love is also about patience.
+        Understanding.
+        Forgiveness.
+
+        And choosing each other again.
+
+    </p>
+
+
+
+    <!-- PHOTO 4 -->
+
+    <p data-photo="photo4.jpg">
+
+        When I think about these two years I realize
+        how many memories we already have.
+
+        Every conversation.
+        Every laugh.
+        Every date.
+        Every random picture.
+        Every adventure.
+        Every simple day where we were just happy
+        being together.
+
+        All of those moments became part of our story.
+
+        They may not seem like huge events to anyone
+        else but they mean something special to me
+        because I experienced them with you.
+
+        And I want more of those moments.
+
+    </p>
+
+
+
+    <!-- PHOTO 5 -->
+
+    <p data-photo="photo5.jpg">
+
+        I don't know exactly what our future will
+        look like.
+
+        I don't know where life will take us.
+
+        I don't know what challenges we will face.
+
+        But I know that I want you to be part
+        of that future.
+
+        I want to continue growing with you.
+
+        I want to continue learning about you.
+
+        I want to continue making you laugh.
+
+        I want to continue making memories with you.
+
+        And most importantly I want to continue
+        choosing you.
+
+    </p>
+
+
+
+    <!-- PHOTO 1 AGAIN -->
+
+    <p data-photo="photo1.jpg">
 
         Thank you for these two beautiful years.
-        Thank you for your patience.
+
         Thank you for your love.
+        Thank you for your patience.
+        Thank you for your understanding.
+
         Thank you for every memory.
+
         Thank you for every laugh.
-        Thank you for every moment that made these two
-        years special.
 
-        If I could go back to the beginning and experience
-        everything again I would still choose you.
+        Thank you for every moment that made
+        these two years special.
+
+        If I could go back to the beginning
+        and experience everything again,
+
+        I would still choose you.
+
+    </p>
+
+
+
+    <!-- PHOTO 2 AGAIN -->
+
+    <p data-photo="photo2.jpg">
+
+        I hope that this is only the beginning
+        of our story.
+
+        I hope that we get to celebrate many
+        more anniversaries together.
+
+        I hope that years from now we can look
+        back at these memories and smile.
+
+        I hope we can look at the pictures from
+        these years and remember exactly how
+        happy we were.
+
+        And I hope that no matter how much
+        time passes you will always know
+        how much you mean to me.
 
     </p>
 
 
 
-    <p>
+    <!-- PHOTO 3 AGAIN -->
 
-        I hope that this is only the beginning of our story.
-        I hope that we get to celebrate many more
-        anniversaries together. I hope that years from now
-        we can look back at these memories and smile at how
-        young we were and how much we loved each other.
+    <p data-photo="photo3.jpg">
 
-        No matter how much time passes I hope you always
-        remember that you are someone incredibly special
-        to me.
+        You have become one of the most important
+        people in my life.
+
+        You are someone I can laugh with.
+
+        Someone I can talk to.
+
+        Someone I can share my thoughts with.
+
+        Someone I can make memories with.
+
+        And someone I want beside me as we
+        continue growing older together.
 
     </p>
 
 
-</main>
+
+    <!-- PHOTO 4 AGAIN -->
+
+    <p data-photo="photo4.jpg">
+
+        Two years ago we started our story.
+
+        Today we are still writing it.
+
+        And there are still so many pages
+        left for us to fill.
+
+        More memories.
+
+        More adventures.
+
+        More laughs.
+
+        More pictures.
+
+        More moments that we will someday
+        look back on and remember.
+
+    </p>
 
 
 
-<!-- =================================
+    <!-- PHOTO 5 AGAIN -->
+
+    <p data-photo="photo5.jpg">
+
+        So on our second anniversary I just want
+        to say thank you.
+
+        Thank you for choosing me.
+
+        Thank you for staying.
+
+        Thank you for loving me.
+
+        And thank you for giving me two years
+        that I will always treasure.
+
+        I love you more than I can properly
+        explain with words.
+
+        Happy 2nd anniversary, my love.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =========================
      FINAL
-================================= -->
+========================= -->
 
-<section class="end">
+<section class="final">
 
-    <div class="end-content">
+    <div class="final-content">
 
         <h2>
             Happy 2nd Anniversary ❤️
@@ -645,9 +773,17 @@ id="background">
 
             Two years down.
 
+            <br><br>
+
             Hopefully a lifetime to go.
 
-            I love you more than words can explain.
+            <br><br>
+
+            I love you.
+
+            <br>
+
+            Always.
 
         </p>
 
@@ -655,7 +791,9 @@ id="background">
         <div class="signature">
 
             Forever yours,
+
             <br>
+
             Carl ❤️
 
         </div>
@@ -666,93 +804,151 @@ id="background">
 
 
 
+<!-- =========================
+     PHOTO CHANGE SCRIPT
+========================= -->
+
 <script>
 
-/* =================================
-   CHANGE BACKGROUND WHEN SCROLLING
-================================= */
-
-const bg = document.getElementById("bg");
+const photo =
+    document.getElementById("backgroundPhoto");
 
 const paragraphs =
     document.querySelectorAll(".message p");
 
-let currentPhoto = "photo1.jpg";
+
+let currentPhoto =
+    "photo1.jpg";
 
 
-function changeBackground() {
-
-    let newPhoto = "photo1.jpg";
-
-
-    paragraphs.forEach(function(paragraph) {
-
-        const position =
-            paragraph.getBoundingClientRect().top;
+let changing =
+    false;
 
 
-        if (position < window.innerHeight / 2) {
 
-            newPhoto =
-                paragraph.getAttribute("data-photo");
+function updatePhoto() {
+
+    let newPhoto =
+        "photo1.jpg";
+
+
+    paragraphs.forEach(
+        function(paragraph) {
+
+            const rect =
+                paragraph.getBoundingClientRect();
+
+
+            /*
+                When the paragraph reaches
+                the middle of the phone screen,
+                its photo becomes active.
+            */
+
+            if (
+                rect.top <
+                window.innerHeight * 0.55
+            ) {
+
+                newPhoto =
+                    paragraph.dataset.photo;
+
+            }
 
         }
-
-    });
-
-
-    /* Only animate when the picture actually changes */
-
-    if (newPhoto !== currentPhoto) {
-
-        currentPhoto = newPhoto;
+    );
 
 
-        /* Start fade out + zoom */
+    /*
+        Don't reload the same photo.
+    */
 
-        bg.classList.add("change");
+    if (
+        newPhoto === currentPhoto ||
+        changing
+    ) {
 
-
-        setTimeout(function() {
-
-            /* Change the picture */
-
-            bg.style.backgroundImage =
-                "url('" + currentPhoto + "')";
-
-
-            /* Fade back in */
-
-            bg.classList.remove("change");
-
-
-            /* Start zoom */
-
-            bg.style.transform =
-                "scale(1.08)";
-
-
-            setTimeout(function() {
-
-                bg.style.transform =
-                    "scale(1)";
-
-            }, 100);
-
-        }, 1000);
+        return;
 
     }
+
+
+    changing = true;
+
+
+    /*
+        Fade out
+    */
+
+    photo.style.opacity = "0";
+
+    photo.style.transform =
+        "scale(1.08)";
+
+
+    setTimeout(
+        function() {
+
+
+            /*
+                Change image
+            */
+
+            photo.src =
+                newPhoto;
+
+
+            /*
+                When the new image
+                finishes loading
+            */
+
+            photo.onload =
+                function() {
+
+                    photo.style.opacity =
+                        "1";
+
+
+                    photo.style.transform =
+                        "scale(1)";
+
+
+                    currentPhoto =
+                        newPhoto;
+
+
+                    changing =
+                        false;
+
+                };
+
+
+        },
+        700
+    );
 
 }
 
 
+/*
+    Change while scrolling
+*/
+
 window.addEventListener(
     "scroll",
-    changeBackground
+    updatePhoto,
+    {
+        passive: true
+    }
 );
 
 
-changeBackground();
+/*
+    Initial photo
+*/
+
+updatePhoto();
 
 </script>
 
