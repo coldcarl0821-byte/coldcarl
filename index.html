@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Happy 2nd Anniversary ❤️</title>
+
+
+<style>
+
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: #000;
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   FIXED PHOTO BACKGROUND
+========================================= */
+
+.photo-background {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+.photo-background img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center center;
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition:
+        opacity 0.9s ease-in-out,
+        transform 7s ease-in-out;
+}
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.overlay {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.30),
+            rgba(0, 0, 0, 0.68)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CONTENT LAYERS
+========================================= */
+
+.hero,
+.message,
+.final {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   OPENING
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+.hero-content {
+
+    animation:
+        fadeIn 2s ease;
+}
+
+
+.small-title {
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(
+            50px,
+            13vw,
+            85px
+        );
+
+    font-weight: normal;
+
+    line-height: 1.05;
+
+    text-shadow:
+        0 4px 20px #000;
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    font-size: 0.45em;
+
+    font-style: italic;
+
+    margin-top: 18px;
+}
+
+
+.scroll {
+
+    margin-top: 60px;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    animation:
+        bounce 2s infinite;
+}
+
+
+.arrow {
+
+    display: block;
+
+    margin-top: 12px;
+
+    font-size: 25px;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    padding:
+        100px
+        25px
+        150px;
+}
+
+
+.message-title {
+
+    text-align: center;
+
+    margin-bottom: 80px;
+}
+
+
+.message-title h2 {
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+    text-shadow:
+        0 3px 15px #000;
+}
+
+
+.heart {
+
+    font-size: 28px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   MESSAGE PARAGRAPHS
+========================================= */
+
+.message p {
+
+    font-size: 19px;
+
+    line-height: 2;
+
+    margin-bottom: 150px;
+
+    text-shadow:
+        0 3px 12px #000;
+}
+
+
+/* =========================================
+   FINAL SECTION
+========================================= */
+
+.final {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+.final-content {
+
+    max-width: 650px;
+}
+
+
+.final h2 {
+
+    font-size: 48px;
+
+    font-weight: normal;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 4px 20px #000;
+}
+
+
+.final p {
+
+    font-size: 19px;
+
+    line-height: 2;
+
+    text-shadow:
+        0 3px 12px #000;
+}
+
+
+.signature {
+
+    margin-top: 50px;
+
+    font-size: 25px;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   FADE IN ANIMATION
+========================================= */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   SCROLL ARROW
+========================================= */
+
+@keyframes bounce {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(10px);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .small-title {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 50px;
+    }
+
+
+    .hero h1 span {
+
+        font-size: 25px;
+    }
+
+
+    .message {
+
+        padding:
+            80px
+            24px
+            120px;
+    }
+
+
+    .message-title h2 {
+
+        font-size: 32px;
+    }
+
+
+    .message p {
+
+        font-size: 17px;
+
+        line-height: 1.9;
+
+        margin-bottom: 150px;
+    }
+
+
+    .final h2 {
+
+        font-size: 40px;
+    }
+
+
+    .final p {
+
+        font-size: 17px;
+    }
+
+
+    .signature {
+
+        font-size: 22px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     BACKGROUND PHOTO
+========================================= -->
+
+<div class="photo-background">
+
+    <img
+        id="backgroundPhoto"
+        src="photo1.jpg"
+        alt="Our memory">
+
+</div>
+
+
+<!-- =========================================
+     DARK OVERLAY
+========================================= -->
+
+<div class="overlay"></div>
+
+
+
+<!-- =========================================
+     OPENING
+========================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+
+        <div class="small-title">
+
+            For the love of my life
+
+        </div>
+
+
+
+        <h1>
+
+            Happy
+
+            <span>
+
+                2nd Anniversary ❤️
+
+            </span>
+
+        </h1>
+
+
+
+        <div class="scroll">
+
+            Scroll down
+
+            <span class="arrow">
+
+                ↓
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ONE CONTINUOUS MESSAGE
+========================================= -->
+
+<section class="message">
+
+
+    <div class="message-title">
+
+        <h2>
+
+            To My Love
+
+        </h2>
+
+
+        <div class="heart">
+
+            ♡
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         PHOTO 1
+    ====================================== -->
+
+    <p data-photo="photo1.jpg">
+
+        Happy 2nd anniversary my bebe
+
+
+        Hello my baby first of all sorry kase hindi
+        kita na lsm nung anniv naten. But I’m
+        very thankful dahil umabot tayo ng 2yrs babe.
+        Thank you sa pagsstay saakin kahit shit ako
+        sayong paningin. Beb I know na nag aaway
+        tayo palagi abt sa principles ko.
+
+
+        I’m sorry let’s try again babe I will pick you first
+        before anything else ulit. Sorry sa pagiging homophobic
+        ko, as I said before na yon talaga personality
+        ko. Pero narealize ko na nagkamali ako ng
+        pinili which is yung homophobic, I realize that
+        I can’t live without my other half :((.
+
+
+        In order to have you I just need to
+        sacrifice my personality so that we can live
+        with each other.
+
+
+        Please be patient with me kasi trinatry ko pa ren
+        na baguhin sarili ko oki? Pero I promise na hindi na
+        ako magshashare ng mga homophobic posts on social media 😊.
+
+    </p>
+
+
+
+    <!-- =====================================
+         PHOTO 2
+    ====================================== -->
+
+    <p data-photo="photo2.jpg">
+
+        Now I want us to fix things that
+        I broke please let’s fix our rs. I
+        know that this will be a challenge for
+        us but I have high hopes for us.
+
+
+        I just want to be honest about my intentions.
+        I’m not here to become your fubu but
+        to become your boyfriend again. I promise that
+        I will treat you and love you better
+        just like what you want. I want you
+        to be my first and last girlfriend until
+        you become my wife.
+
+
+        I hope we’re still
+        together after College babe I want us to
+        have a family in the future. We’ll work
+        hard oki for the future that we want
+        oki? Mwa.
+
+    </p>
+
+
+
+    <!-- =====================================
+         PHOTO 3
+    ====================================== -->
+
+    <p data-photo="photo3.jpg">
+
+        Last night you asked me about “Bakit mo
+        ako mahal?” bigla ko naisip na hindi ko
+        maexplain into words why I love you. Sa
+        sobrang deep ng pagmamahal ko sayo hindi ko
+        maexplain it into words but trust me that
+        my love for you is real.
+
+
+        Totoo yung pagmamahal ko sayo kase kahit nakita
+        ko na mga flaws mo and other sides nandito pa rin ako.
+        Your imperfections make you perfect.
+
+
+        Kahit na masungit ka saken love pa rin kita.
+        Kahit maarte ka love pa rin kita. Even if the
+        world turns against you I still love you
+        bb, My love is unconditional.
+
+    </p>
+
+
+
+    <!-- =====================================
+         PHOTO 4
+    ====================================== -->
+
+    <p data-photo="photo4.jpg">
+
+        I’ll tell you some reasons I know why I
+        love you (pinagisipan ko mabuti) First of all caring
+        ka saken and you’re already my safe place.
+
+
+        Kahit ano ikwento ko sayo and pati yung childish
+        side ko sayo ko lang pinapakita.
+
+
+        I really love it pag nashoshow ko yung side ko
+        na yon sayo 😊
+
+
+        2 You’re so hot bebi
+        no joke, sobrang ganda mo beb shet sarap.
+
+
+        Nakita ko na lahat lahat sayo pati bare face
+        mo gandang ganda pa rin ako sayo.
+
+    </p>
+
+
+
+    <!-- =====================================
+         PHOTO 5
+    ====================================== -->
+
+    <p data-photo="photo5.jpg">
+
+        Lastly, palagi mo ako napapasaya, pag masaya ka
+        masaya na rin ako beb. May time na
+        inabutan tayo sa espanya ng ulan tas namomoblema
+        na ako tas ikaw tawa lang.
+
+
+        Sumaya ako non kasi parehas tayo nastranded sa espanya
+        HAHAHAH may kasama ako.
+
+
+        I love you so much my
+        baby I promise that I’ll take care of
+        you but take care of me too oki?
+
+
+        You're the best thing that ever happened to my life kia.
+
+
+        Thank you for giving color to my life.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =========================================
+     FINAL
+========================================= -->
+
+<section class="final">
+
+    <div class="final-content">
+
+
+        <h2>
+
+            Happy 2nd Anniversary ❤️
+
+        </h2>
+
+
+
+        <p>
+
+            Two years down.
+
+            <br><br>
+
+            Hopefully a lifetime to go.
+
+            <br><br>
+
+            I love you my bebi.
+
+            <br>
+
+            Always.
+
+        </p>
+
+
+
+        <div class="signature">
+
+            Forever yours,
+
+            <br>
+
+            - bb Carl ❤️
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PHOTO CHANGE SCRIPT
+========================================= -->
+
+<script>
+
+
+const photo =
+    document.getElementById(
+        "backgroundPhoto"
+    );
+
+
+const paragraphs =
+    document.querySelectorAll(
+        ".message p"
+    );
+
+
+let currentPhoto =
+    "photo1.jpg";
+
+
+let changing =
+    false;
+
+
+/* =========================================
+   CHANGE PHOTO
+========================================= */
+
+function updatePhoto() {
+
+
+    /*
+       Start with photo 1.
+    */
+
+    let activePhoto =
+        "photo1.jpg";
+
+
+    /*
+       Check every message paragraph.
+    */
+
+    paragraphs.forEach(
+        function(paragraph) {
+
+
+            const rect =
+                paragraph.getBoundingClientRect();
+
+
+            /*
+               The paragraph becomes active
+               when it reaches the center area
+               of the screen.
+            */
+
+            if (
+                rect.top <=
+                    window.innerHeight * 0.50
+                &&
+                rect.bottom >=
+                    window.innerHeight * 0.20
+            ) {
+
+
+                activePhoto =
+                    paragraph.getAttribute(
+                        "data-photo"
+                    );
+
+            }
+
+        }
+    );
+
+
+    /*
+       IMPORTANT:
+
+       When the user reaches the bottom,
+       KEEP PHOTO 5.
+
+       Don't make the background black.
+    */
+
+    const bottomReached =
+        window.innerHeight +
+        window.scrollY >=
+        document.documentElement.scrollHeight - 100;
+
+
+    if (bottomReached) {
+
+
+        activePhoto =
+            paragraphs[
+                paragraphs.length - 1
+            ].getAttribute(
+                "data-photo"
+            );
+
+    }
+
+
+    /*
+       Don't animate if the photo
+       hasn't changed.
+    */
+
+    if (
+        activePhoto === currentPhoto
+        ||
+        changing
+    ) {
+
+        return;
+
+    }
+
+
+    changing =
+        true;
+
+
+    /*
+       FADE OUT
+    */
+
+    photo.style.opacity =
+        "0";
+
+
+    photo.style.transform =
+        "scale(1.08)";
+
+
+    /*
+       Wait for fade.
+    */
+
+    setTimeout(
+        function() {
+
+
+            /*
+               Change the actual image.
+            */
+
+            photo.src =
+                activePhoto;
+
+
+            /*
+               Wait until the image
+               has finished loading.
+            */
+
+            photo.onload =
+                function() {
+
+
+                    /*
+                       Fade image back in.
+                    */
+
+                    photo.style.opacity =
+                        "1";
+
+
+                    /*
+                       Slowly zoom back.
+                    */
+
+                    photo.style.transform =
+                        "scale(1)";
+
+
+                    /*
+                       Save current image.
+                    */
+
+                    currentPhoto =
+                        activePhoto;
+
+
+                    changing =
+                        false;
+
+                };
+
+
+            /*
+               Safety fallback.
+
+               If the browser already has
+               the image cached, onload can
+               happen very quickly.
+            */
+
+            if (photo.complete) {
+
+                photo.style.opacity =
+                    "1";
+
+                photo.style.transform =
+                    "scale(1)";
+
+                currentPhoto =
+                    activePhoto;
+
+                changing =
+                    false;
+
+            }
+
+
+        },
+
+        700
+
+    );
+
+}
+
+
+
+/* =========================================
+   SCROLL EVENT
+========================================= */
+
+window.addEventListener(
+
+    "scroll",
+
+    updatePhoto,
+
+    {
+        passive: true
+    }
+
+);
+
+
+
+/* =========================================
+   INITIAL PHOTO
+========================================= */
+
+photo.src =
+    "photo1.jpg";
+
+
+photo.style.opacity =
+    "1";
+
+
+photo.style.transform =
+    "scale(1)";
+
+
+currentPhoto =
+    "photo1.jpg";
+
+
+</script>
+
+
+
+</body>
+
+</html>
